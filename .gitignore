@@ -1,0 +1,15 @@
+﻿# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 中间产物
+temp/
+
+# 模型权重（大文件，不入库）
+backend/models/*.pt
+backend/models/*.pth
+backend/models/*.bak
+
+# macOS
+.DS_Store
