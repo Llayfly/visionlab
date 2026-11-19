@@ -1,6 +1,6 @@
 # VISIONLAB · 智能视觉工作站
 
-一个可本地运行的前后端项目，包含图像上传、ESRGAN 高清增强接口、YOLOv8 目标检测接口、视频本地预览、数据统计与历史任务页面。
+一个可本地运行的前后端项目，专注工地安全帽/头盔与反光衣检测：图像上传、YOLOv8 目标检测、视频流实时检测、数据统计与历史任务页面。
 
 ## 项目结构
 
@@ -10,7 +10,7 @@ VISIONLAB_完整项目/
 │  └─ index.html             # 网站界面
 ├─ backend/
 │  ├─ __init__.py
-│  ├─ main.py                # FastAPI 后端与推理接口
+│  ├─ main.py                # FastAPI 后端与检测接口
 │  └─ models/
 │     └─ README.txt          # 模型权重放置说明
 ├─ scripts/
@@ -30,20 +30,19 @@ VISIONLAB_完整项目/
 
 ## 模型配置
 
-项目代码已提供真实模型接口，但**权重文件没有打包**：
+项目代码已提供真实检测接口，但**权重文件没有打包**：
 
-- YOLOv8：将 `yolov8n.pt` 放入 `backend/models/`。
-- Real-ESRGAN：将 `RealESRGAN_x4plus.pth` 放入 `backend/models/`。
+- YOLOv8：将 `best.pt`（工地安全帽/头盔与反光衣检测，4 类）放入 `backend/models/`。
 
-对应接口：
-- `POST /api/detect`：表单字段 `file`（图像）与 `confidence`（0.01–0.99）。
-- `POST /api/enhance`：表单字段 `file`（图像）与 `scale`（2 或 4）。
+接口：
+- `GET /api/health`：返回服务状态与检测权重是否就绪。
+- `POST /api/detect`：表单字段 `file`（图像）与 `confidence`（0.01–0.99），返回目标数量、平均置信度、耗时与检测框。
 
-Real-ESRGAN 的 Python 依赖可能因 Python、PyTorch、CUDA 版本而不同。需要时在虚拟环境中按 Real-ESRGAN 官方项目说明安装 `realesrgan` 及兼容的 PyTorch/BasicSR 依赖。若尚未安装或缺少权重，API 会返回清晰错误，不会伪造成功结果。
+若缺少权重，接口会返回清晰错误，不会伪造成功结果。
 
 ## 视频流说明
 
-当前提供本地视频文件预览。要做实时视频目标检测，还需增加逐帧推理与流式传输逻辑；当前版本不把普通视频播放冒充实时 AI 检测。
+视频流检测支持两种模式：导入本地视频文件，或调用浏览器摄像头。前端每 3 帧抽取 1 帧、压缩至 640px 宽后调用 `POST /api/detect`，检测框按显示尺寸换算并用中文标签绘制，检测结果在帧间做平滑与短暂保持，避免标注框闪烁。
 
 ## 安全与使用
 

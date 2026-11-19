@@ -5,5 +5,3 @@ Pillow>=10.0
 numpy>=1.26
 opencv-python>=4.9
 ultralytics>=8.2
-# Real-ESRGAN 依赖在不同 Python / PyTorch 版本上可能需要单独配置：
-# pip install realesrgan

@@ -5,4 +5,4 @@ VISIONLAB 完整项目
 3. 双击 scripts\启动网站.bat。
 4. 浏览器访问 http://127.0.0.1:8000。
 
-真实 ESRGAN / YOLOv8 推理还需要自行准备模型权重，详见 README.md 和 backend\models\README.txt。
+本系统仅提供工地安全帽/头盔与反光衣检测，需要自行准备 YOLOv8 权重，详见 README.md 和 backend\models\README.txt。
