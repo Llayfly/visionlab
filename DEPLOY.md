@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 1f21ca64993e9fbf74e173ad8dbf6620_30f09b7fe42e11f190fe525400393706
+    ReservedCode1: b7Deacpk8ottdy0jPKM+NHeS6ugKJBH38cETbbkk/pDrAvMMTO8C8fgpLyMj+C2QHjf9S7LcHCeubMUoa2UU4LCmbdnv62gkmtkc1HeOQ/hhVe7TF4Pi+5K+bx67H3wukLkG10fzB33IgteVLV6UiAb6BkJ2QWnAUjUcAnaMG9Gln/R/q3jdVhFyb6k=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 1f21ca64993e9fbf74e173ad8dbf6620_30f09b7fe42e11f190fe525400393706
+    ReservedCode2: b7Deacpk8ottdy0jPKM+NHeS6ugKJBH38cETbbkk/pDrAvMMTO8C8fgpLyMj+C2QHjf9S7LcHCeubMUoa2UU4LCmbdnv62gkmtkc1HeOQ/hhVe7TF4Pi+5K+bx67H3wukLkG10fzB33IgteVLV6UiAb6BkJ2QWnAUjUcAnaMG9Gln/R/q3jdVhFyb6k=
+---
+
 # VISIONLAB 部署指南（Vercel + 阿里云 + Cloudflare）
 
 ## 一、先说结论：三层怎么分工
@@ -142,3 +153,4 @@ server {
 - 本地仍然双击 `scripts/启动网站.bat`，访问 http://127.0.0.1:8000；
 - `config.js` 留空时前端自动走同源，本地行为与之前完全一致；
 - 只有跨域部署场景才需要填 `window.VISIONLAB_API`。
+*（内容由AI生成，仅供参考）*
